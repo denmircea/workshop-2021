@@ -4,7 +4,6 @@ MainWindow::MainWindow(QWidget* parent, Qt::WindowFlags flags) :
 	QMainWindow(parent, flags)
 {
 	_ui.setupUi(this);
-
 	_view = new PaintView(this);
 	this->setCentralWidget(_view);
 	this->adjustSize();

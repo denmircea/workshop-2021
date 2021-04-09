@@ -1,7 +1,6 @@
 #include "PaintView.h"
 
 #include <QtGui/QMouseEvent>
-
 static const int	kWindowWidth	= 800;
 static const int	kWindowHeight	= 600;
 
@@ -13,6 +12,9 @@ PaintView::PaintView(QWidget *parent)
 
 	this->setScene(_scene);
 	this->centerOn(0, 0);
+	_lineButton = new QPushButton("linie",this);
+	_rectButton = new QPushButton("dreptunghi", this);
+	_rectButton->move(QPoint(70, 0));
 }
 
 PaintView::~PaintView()
@@ -22,6 +24,10 @@ PaintView::~PaintView()
 QGraphicsLineItem* PaintView::createLine(const QLineF& line)
 {
 	return _scene->addLine(line);
+}
+QGraphicsRectItem* PaintView::createRect(const QRectF& rect)
+{
+	return _scene->addRect(rect);
 }
 
 void PaintView::mousePressEvent(QMouseEvent* event)
