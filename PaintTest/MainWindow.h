@@ -15,7 +15,7 @@ public:
 
 private:
 	Ui::PaintTest			_ui;
-
+	
 	PaintView*				_view;
 	PaintController*		_controller;
 };

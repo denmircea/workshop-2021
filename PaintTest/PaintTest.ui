@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1126</width>
-    <height>854</height>
+    <width>458</width>
+    <height>319</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,10 +19,23 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1126</width>
+     <width>458</width>
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuLinie">
+    <property name="title">
+     <string>Linie</string>
+    </property>
+    <addaction name="separator"/>
+   </widget>
+   <widget class="QMenu" name="menuDreptunghi">
+    <property name="title">
+     <string>Dreptunghi</string>
+    </property>
+   </widget>
+   <addaction name="menuLinie"/>
+   <addaction name="menuDreptunghi"/>
   </widget>
   <action name="actionOpen">
    <property name="text">
