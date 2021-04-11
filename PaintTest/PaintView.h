@@ -20,11 +20,14 @@ signals:
 	void				mousePress(const QPoint& pos, const Qt::MouseButtons& buttons);
 	void				mouseMove(const QPoint& pos, const Qt::MouseButtons& buttons);
 	void				mouseRelease(const QPoint& pos, const Qt::MouseButtons& buttons);
+	void				keyPress(const Qt::KeyboardModifiers& buttons);
 	void				buttonSelect(int id);
 private:
 	void				mousePressEvent(QMouseEvent* event) override;
 	void				mouseMoveEvent(QMouseEvent* event) override;
 	void				mouseReleaseEvent(QMouseEvent* event) override;
+	void				keyPressEvent(QKeyEvent* event) override;
+	void				keyReleaseEvent(QKeyEvent* event) override;
 public slots:
 	void  clickLineButton();
 	void  clickRectButton();

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>458</width>
-    <height>319</height>
+    <width>611</width>
+    <height>473</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,23 +19,17 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>458</width>
+     <width>611</width>
      <height>21</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuLinie">
+   <widget class="QMenu" name="menuAbout">
     <property name="title">
-     <string>Linie</string>
+     <string>About</string>
     </property>
-    <addaction name="separator"/>
+    <addaction name="actionMade_by_Mircea"/>
    </widget>
-   <widget class="QMenu" name="menuDreptunghi">
-    <property name="title">
-     <string>Dreptunghi</string>
-    </property>
-   </widget>
-   <addaction name="menuLinie"/>
-   <addaction name="menuDreptunghi"/>
+   <addaction name="menuAbout"/>
   </widget>
   <action name="actionOpen">
    <property name="text">
@@ -60,6 +54,11 @@
   <action name="actionNew">
    <property name="text">
     <string>New</string>
+   </property>
+  </action>
+  <action name="actionMade_by_Mircea">
+   <property name="text">
+    <string>Made by Mircea</string>
    </property>
   </action>
  </widget>

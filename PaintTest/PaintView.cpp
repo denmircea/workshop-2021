@@ -15,8 +15,8 @@ PaintView::PaintView(QWidget *parent)
 	_lineButton = new QPushButton("linie",this);
 	_rectButton = new QPushButton("dreptunghi", this);
 	_drawButton = new QPushButton("desen", this);
-	_rectButton->move(QPoint(70, 0));
-	_drawButton->move(QPoint(140, 0));
+	_rectButton->move(QPoint(0, 70));
+	_drawButton->move(QPoint(0, 140));
 	connect(_lineButton, &QPushButton::clicked, this,&PaintView::clickLineButton);
 	connect(_rectButton, &QPushButton::clicked, this,&PaintView::clickRectButton);
 	connect(_drawButton, &QPushButton::clicked, this, &PaintView::clickDrawButton);
@@ -59,6 +59,18 @@ void PaintView::mouseReleaseEvent(QMouseEvent* event)
 	QPoint pos = event->pos();
 	Qt::MouseButtons buttons = event->buttons();
 	emit mouseRelease(pos, buttons);
+}
+
+void PaintView::keyPressEvent(QKeyEvent* event)
+{
+	Qt::KeyboardModifiers modifiers = event->modifiers();
+	emit keyPress(modifiers);
+}
+
+void PaintView::keyReleaseEvent(QKeyEvent* event)
+{
+	Qt::KeyboardModifiers modifiers = event->modifiers();
+	emit keyPress(modifiers);
 }
 
 void PaintView::clickLineButton() {

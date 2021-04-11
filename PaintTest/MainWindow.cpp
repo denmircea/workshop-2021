@@ -17,6 +17,8 @@ MainWindow::MainWindow(QWidget* parent, Qt::WindowFlags flags) :
 		_controller, SLOT(onMouseMove(QPoint, Qt::MouseButtons)));
 	connect(_view, SIGNAL(mouseRelease(QPoint, Qt::MouseButtons)),
 		_controller, SLOT(onMouseRelease(QPoint, Qt::MouseButtons)));
+	connect(_view, SIGNAL(keyPress(Qt::KeyboardModifiers)),
+		_controller, SLOT(onKeyPress(Qt::KeyboardModifiers)));
 	connect(_view, SIGNAL(buttonSelect(int)),
 		_controller, SLOT(onButtonSelect(int)));
 		
