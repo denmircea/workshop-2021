@@ -15,13 +15,13 @@ PaintController::~PaintController()
 
 void PaintController::onMousePress(const QPoint& pos, const Qt::MouseButtons& buttons)
 {
-	if (selection == 0) {
+	if (_selection == 0) {
 		_point = pos;
 	}
-	else if (selection == 1) {
+	else if (_selection == 1) {
 		_line = _view->createLine(QLineF(pos, pos));
 	}
-	else if (selection == 2) {
+	else if (_selection == 2) {
 		_rect = _view->createRect(QRectF(pos, pos));
 		_point = pos; /// salvez punctul in care incepe dreptunghiul pt update
 
