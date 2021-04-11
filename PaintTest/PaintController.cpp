@@ -5,7 +5,7 @@ PaintController::PaintController(QObject* parent, PaintView* view)
 	: QObject(parent),
 	_view(view)
 {
-	this->selection = 0;
+	this->_selection = 0;
 	this->_shiftPressed = 0;
 }
 
