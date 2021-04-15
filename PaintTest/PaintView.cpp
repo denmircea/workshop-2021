@@ -4,6 +4,7 @@
 static const int	kWindowWidth	= 800;
 static const int	kWindowHeight	= 600;
 
+static const QColor kInitialColor = QColor(0, 0, 0);
 PaintView::PaintView(QWidget *parent)
 	: QGraphicsView(parent)
 {
@@ -15,11 +16,17 @@ PaintView::PaintView(QWidget *parent)
 	_lineButton = new QPushButton("linie",this);
 	_rectButton = new QPushButton("dreptunghi", this);
 	_drawButton = new QPushButton("desen", this);
+	_colorButton = new QPushButton("schimbare culoare", this);
 	_rectButton->move(QPoint(0, 70));
 	_drawButton->move(QPoint(0, 140));
+	_colorButton->move(QPoint(0, 210));
 	connect(_lineButton, &QPushButton::clicked, this,&PaintView::clickLineButton);
 	connect(_rectButton, &QPushButton::clicked, this,&PaintView::clickRectButton);
 	connect(_drawButton, &QPushButton::clicked, this, &PaintView::clickDrawButton);
+	connect(_colorButton, &QPushButton::clicked, this, &PaintView::clickColorButton);
+	_colorDialog = new QColorDialog(kInitialColor, this);
+	_colorDialog->move(QPoint(150, 105));
+	_pen = new QPen(kInitialColor,3);
 }
 
 PaintView::~PaintView()
@@ -29,15 +36,15 @@ QGraphicsEllipseItem* PaintView::createPoint(const QPointF& pt)
 {
 	double rad = 1;
 	return _scene->addEllipse(pt.x() - rad, pt.y() - rad, rad * 2.0, rad * 2.0,
-		QPen(), QBrush(Qt::SolidPattern)) ;
+		getPen(), QBrush(Qt::SolidPattern)) ;
 }
 QGraphicsLineItem* PaintView::createLine(const QLineF& line)
 {
-	return _scene->addLine(line);
+	return _scene->addLine(line,getPen());
 }
 QGraphicsRectItem* PaintView::createRect(const QRectF& rect)
 {
-	return _scene->addRect(rect);
+	return _scene->addRect(rect, getPen());
 }
 
 void PaintView::mousePressEvent(QMouseEvent* event)
@@ -73,6 +80,14 @@ void PaintView::keyReleaseEvent(QKeyEvent* event)
 	emit keyPress(modifiers);
 }
 
+QPen PaintView::getPen()
+{
+	return *_pen;
+}
+
+
+
+
 void PaintView::clickLineButton() {
 	emit buttonSelect(1);
 }
@@ -84,3 +99,9 @@ void PaintView::clickDrawButton()
 {
 	emit buttonSelect(0);
 }
+
+void PaintView::clickColorButton()
+{
+	_pen->setColor(_colorDialog->getColor());
+}
+
