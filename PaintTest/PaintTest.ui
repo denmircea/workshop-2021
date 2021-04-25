@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>611</width>
-    <height>473</height>
+    <width>1092</width>
+    <height>854</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,18 +19,26 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>611</width>
+     <width>1092</width>
      <height>21</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuAbout">
-    <property name="title">
-     <string>About</string>
-    </property>
-    <addaction name="actionMade_by_Mircea"/>
-   </widget>
-   <addaction name="menuAbout"/>
   </widget>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>LeftToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionSelect"/>
+   <addaction name="separator"/>
+   <addaction name="actionLine"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
   <action name="actionOpen">
    <property name="text">
     <string>Open...</string>
@@ -56,9 +64,34 @@
     <string>New</string>
    </property>
   </action>
-  <action name="actionMade_by_Mircea">
+  <action name="actionSelect">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="painttest.qrc">
+     <normaloff>:/MainWindow/res/icons/Select.png</normaloff>:/MainWindow/res/icons/Select.png</iconset>
+   </property>
    <property name="text">
-    <string>Made by Mircea</string>
+    <string>Select</string>
+   </property>
+   <property name="toolTip">
+    <string>Select</string>
+   </property>
+  </action>
+  <action name="actionLine">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="painttest.qrc">
+     <normaloff>:/MainWindow/res/icons/Line.png</normaloff>:/MainWindow/res/icons/Line.png</iconset>
+   </property>
+   <property name="text">
+    <string>Line</string>
+   </property>
+   <property name="toolTip">
+    <string>Line</string>
    </property>
   </action>
  </widget>
