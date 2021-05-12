@@ -15,6 +15,8 @@ public:
 public slots:
 	void			onActionSelect();
 	void			onActionLine();
+	void			onActionRectangle();
+	void			onActionEllipse();
 
 protected slots:
 	void			onMousePress(const QPointF& pos, const Qt::MouseButtons& buttons);
@@ -25,6 +27,9 @@ private:
 	PaintView*			_view;
 
 	QGraphicsLineItem*	_line;
+	QGraphicsRectItem*  _rectangle;
+	QGraphicsEllipseItem* _ellipse;
+	QPointF			    _point;
 
 	QString				_selectedTool;
 };

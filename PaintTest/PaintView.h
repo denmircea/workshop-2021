@@ -12,6 +12,8 @@ public:
 						~PaintView();
 
 	QGraphicsLineItem*	createLine(const QLineF& line);
+	QGraphicsRectItem* createRectangle(const QRectF& rectangle);
+	QGraphicsEllipseItem* createEllipse(const QRectF& ellipse);
 
 signals:
 	void				mousePress(const QPointF& pos, const Qt::MouseButtons& buttons);

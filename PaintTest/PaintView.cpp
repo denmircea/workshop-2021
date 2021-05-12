@@ -32,6 +32,17 @@ QGraphicsLineItem* PaintView::createLine(const QLineF& line)
 	return _scene->addLine(line, _pen);
 }
 
+QGraphicsRectItem* PaintView::createRectangle(const QRectF& rectangle)
+{
+	return _scene->addRect(rectangle, _pen);
+}
+
+QGraphicsEllipseItem* PaintView::createEllipse(const QRectF& ellipse)
+{
+	return _scene->addEllipse(ellipse, _pen);
+}
+
+
 void PaintView::mousePressEvent(QMouseEvent* event)
 {
 	QPointF pos = mapToScene(event->pos());

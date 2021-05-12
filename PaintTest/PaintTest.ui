@@ -20,7 +20,7 @@
      <x>0</x>
      <y>0</y>
      <width>1092</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
@@ -37,6 +37,10 @@
    <addaction name="actionSelect"/>
    <addaction name="separator"/>
    <addaction name="actionLine"/>
+   <addaction name="separator"/>
+   <addaction name="actionRectangle"/>
+   <addaction name="separator"/>
+   <addaction name="actionEllipse"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionOpen">
@@ -92,6 +96,30 @@
    </property>
    <property name="toolTip">
     <string>Line</string>
+   </property>
+  </action>
+  <action name="actionRectangle">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="painttest.qrc">
+     <normaloff>:/MainWindow/res/icons/Rectangle.png</normaloff>:/MainWindow/res/icons/Rectangle.png</iconset>
+   </property>
+   <property name="text">
+    <string>actionRectangle</string>
+   </property>
+  </action>
+  <action name="actionEllipse">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="painttest.qrc">
+     <normaloff>:/MainWindow/res/icons/Ellipse.png</normaloff>:/MainWindow/res/icons/Ellipse.png</iconset>
+   </property>
+   <property name="text">
+    <string>actionEllipse</string>
    </property>
   </action>
  </widget>

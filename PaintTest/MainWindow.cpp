@@ -31,12 +31,18 @@ void MainWindow::initLeftToolBar()
 	QActionGroup* actionGroup = new QActionGroup(this);
 	actionGroup->addAction(_ui.actionSelect);
 	actionGroup->addAction(_ui.actionLine);
+	actionGroup->addAction(_ui.actionRectangle);
+	actionGroup->addAction(_ui.actionEllipse);
 	_ui.actionSelect->setChecked(true);
 
 	connect(_ui.actionSelect, &QAction::triggered,
 		_controller, &PaintController::onActionSelect);
 	connect(_ui.actionLine, &QAction::triggered,
 		_controller, &PaintController::onActionLine);
+	connect(_ui.actionRectangle, &QAction::triggered,
+		_controller, &PaintController::onActionRectangle);
+	connect(_ui.actionEllipse,  &QAction::triggered,
+		_controller, & PaintController::onActionEllipse);
 }
 
 void MainWindow::initTopToolBar()
@@ -55,12 +61,11 @@ void MainWindow::initTopToolBar()
 
 	connect(lineThickness, &QComboBox::currentTextChanged,
 		_view, &PaintView::onLineThickessChanged);
-
 	_actionColor = new QAction(QIcon(":/MainWindow/res/icons/Transparent.png"), "Color", this);
 	_actionColor->setToolTip("Change color of the drawing item");
-
+	_topToolBar->addSeparator();
 	_topToolBar->addAction(_actionColor);
-	_topToolBar->widgetForAction(_actionColor)->setStyleSheet("background: black");
+	_topToolBar->widgetForAction(_actionColor)->setStyleSheet("background: black;");
 
 	_colorDialog = new QColorDialog(this);
 	connect(_actionColor, SIGNAL(triggered()),
